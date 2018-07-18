@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CronTask", "CronTask\CronTask.csproj", "{6C28CD07-6404-4116-831D-816BDE450AD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CronTask.Model", "CronTask.Model\CronTask.Model.csproj", "{AE589AED-2214-4EBE-9222-69A6DB38B189}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CronTask.Entities", "CronTask.Entities\CronTask.Entities.csproj", "{AE589AED-2214-4EBE-9222-69A6DB38B189}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
