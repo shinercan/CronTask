@@ -50,11 +50,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Models\Generated\Entities.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Entities.tt</DependentUpon>
-    </Compile>
     <Compile Update="RuntimeTextTemplate1.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -64,14 +59,6 @@
 
   <ItemGroup>
     <Folder Include="Models\PartialMap\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Models\Generated\Entities.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Entities.tt</DependentUpon>
-    </None>
   </ItemGroup>
 
 </Project>

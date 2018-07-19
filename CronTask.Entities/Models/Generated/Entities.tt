@@ -1,11 +1,11 @@
-﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ include file="PocoCore.ttinclude" #>
 <#@ include file="PocoDbHelper.ttinclude" #>
 <#@ output extension=".cs" #>
 <# 
     
     // 数据库连接
-    var connectionString = @"server=120.79.84.18;uid=himall_admin;pwd=himall@yw;database=himall_test;charset=utf8;";
+    var connectionString = @"server=localhost;uid=root;pwd=123456;database=himall_code;charset=utf8;";
     var nameSpace="CronTask.Entities";
     var prefix="";
     var postfix="Info";
@@ -13,7 +13,7 @@
     var trimPostfix="";
 	
     // 需要解析的数据库
-    var database = new List<string> { "himall_test" };
+    var database = new List<string> { "himall_code" };
 
     // 文件版权信息
     var copyright = DateTime.Now.Year + " CronTask All Rights Reserved";
@@ -24,11 +24,19 @@
     var entities = PocoDbHelper.GetEntities(connectionString, database);
    
 
-   
-    core.StartNewFile("Entities.cs");        
+    foreach(Entity entity in entities)
+    {
+         var className=entity.EntityName;
+        if(!string.IsNullOrWhiteSpace(trimPrefix)){
+            className=entity.EntityName.Replace(trimPrefix,"");
+        }
+        if(!string.IsNullOrWhiteSpace(trimPostfix)){
+            className=entity.EntityName.Replace(trimPostfix,"");
+        }
+        core.StartNewFile(prefix+className+postfix+".cs");        
 #>
 //-----------------------------------------------------------------------
-// <copyright file=" Entities.cs" company="xxxx Enterprises">
+// <copyright file=" <#= prefix+className+postfix#>.cs" company="xxxx Enterprises">
 // * Copyright (C) <#=        copyright #>
 // * version : <#=        version #>
 // * author  : <#=        author #>
@@ -40,25 +48,11 @@ using System;
 
 namespace <#=  nameSpace #>
 {
-    <#
-    foreach(Entity entity in entities)
-    {
-    #>
 
-    
     /// <summary>
     /// <#=            entity.EntityName #> Entity Model
     /// </summary>    
     [Serializable]
-<#
-        var className=entity.EntityName;
-        if(!string.IsNullOrWhiteSpace(trimPrefix)){
-            className=entity.EntityName.Replace(trimPrefix,"");
-        }
-        if(!string.IsNullOrWhiteSpace(trimPostfix)){
-            className=entity.EntityName.Replace(trimPostfix,"");
-        }
-#>
     public partial class <#=            prefix+className+postfix #>
     {
 <#
@@ -81,13 +75,11 @@ namespace <#=  nameSpace #>
 <#            }
         }
 #>
-    }
-<#       
-    }
-    core.Process(true);
-#>
+}
 }
 <#
-    core.EndBlock(); 
+        core.EndBlock(); 
+ }
+core.Process(true);  
 #>
 
