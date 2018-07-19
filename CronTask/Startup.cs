@@ -22,6 +22,7 @@ namespace CronTask
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            Test.TestAddStr(services, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
