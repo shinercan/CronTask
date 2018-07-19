@@ -77,7 +77,7 @@
                 case "int":
                 case "integer":
                     return "int";
-				case "bitint":
+				case "bigint":
                     return "long";
                 case "double":
                     return "double";

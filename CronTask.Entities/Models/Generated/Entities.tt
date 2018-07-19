@@ -5,7 +5,7 @@
 <# 
     
     // 数据库连接
-    var connectionString = @"server=120.79.84.18;uid=himall_admin;pwd=himall@yw;charset=utf8;";
+    var connectionString = @"server=120.79.84.18;uid=himall_admin;pwd=himall@yw;database=himall_test;charset=utf8;";
     var nameSpace="CronTask.Entities";
     var prefix="";
     var postfix="Info";
