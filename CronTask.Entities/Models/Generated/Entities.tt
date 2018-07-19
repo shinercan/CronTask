@@ -8,6 +8,8 @@
 	var nameSpace="CronTask.Entities";
 	var prefix="";
 	var postfix="Info";
+    var trimPrefix="";
+    var trimPostfix="";
 	
     // 需要解析的数据库
     var database = new List<string> { "himall_test" };
@@ -41,7 +43,7 @@ namespace <#= nameSpace #>
     /// <#= entity.EntityName #> Entity Model
     /// </summary>    
     [Serializable]
-    public class <#= prefix+entity.EntityName+postfix #>
+    public partial class <#= prefix+entity.EntityName+postfix #>
     {
 <#
         for(int i = 0; i < entity.Fields.Count; i++)
