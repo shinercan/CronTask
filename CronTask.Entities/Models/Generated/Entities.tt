@@ -1,14 +1,14 @@
-﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
 <#@ include file="Manager.ttinclude" #>
 <#@ include file="EntitiesHelper.ttinclude" #>
 <# 
     
     // 数据库连接
     var connectionString = @"server=120.79.84.18;uid=himall_admin;pwd=himall@yw;charset=utf8;";
-	var nameSpace="CronTask.Entities";
-	var prefix="";
-	var postfix="Info";
-    var trimPrefix="";
+    var nameSpace="CronTask.Entities";
+    var prefix="";
+    var postfix="Info";
+    var trimPrefix="Himall";
     var trimPostfix="";
 	
     // 需要解析的数据库
@@ -22,54 +22,69 @@
     var manager = Manager.Create(Host, GenerationEnvironment);
     var entities = EntitiesHelper.GetEntities(connectionString, database);
 
-    foreach(Entity entity in entities)
-    {
-        manager.StartNewFile(prefix+entity.EntityName+postfix + ".cs");
+   
+        
 #>
 //-----------------------------------------------------------------------
-// <copyright file=" <#= entity.EntityName #>.cs" company="xxxx Enterprises">
-// * Copyright (C) <#= copyright #>
-// * version : <#= version #>
-// * author  : <#= author #>
-// * FileName: <#= entity.EntityName #>.cs
-// * history : Created by T4 <#= DateTime.Now #> 
+// <copyright file=" <#=        entity.EntityName #>.cs" company="xxxx Enterprises">
+// * Copyright (C) <#=        copyright #>
+// * version : <#=        version #>
+// * author  : <#=        author #>
+// * FileName: <#=        entity.EntityName #>.cs
+// * history : Created by T4 <#=        DateTime.Now #> 
 // </copyright>
 //-----------------------------------------------------------------------
 using System;
 
-namespace <#= nameSpace #>
+namespace <#=        nameSpace #>
 {
+    <#
+    manager.StartNewFile("Entities.cs");
+    foreach(Entity entity in entities)
+    {
+    #>
+
+    
     /// <summary>
-    /// <#= entity.EntityName #> Entity Model
+    /// <#=            entity.EntityName #> Entity Model
     /// </summary>    
     [Serializable]
-    public partial class <#= prefix+entity.EntityName+postfix #>
+<#
+        var className=entity.EntityName;
+        if(!string.IsNullOrWhiteSpace(trimPrefix)){
+            className=entity.EntityName.TrimStart(trimPrefix);
+        }
+        if(!string.IsNullOrWhiteSpace(trimPostfix)){
+            className=entity.EntityName.TrimEnd(trimPostfix);
+        }
+#>
+    public partial class <#=            prefix+className+postfix #>
     {
 <#
         for(int i = 0; i < entity.Fields.Count; i++)
         {
             if(i ==0){
 #>        /// <summary>
-        /// <#= entity.Fields[i].Comment #>
+        /// <#=                    entity.Fields[i].Comment #>
         /// </summary>
 
-        public <#= entity.Fields[i].Type #> <#= entity.Fields[i].Name #> { get; set; }
+        public <#=                    entity.Fields[i].Type #> <#=                    entity.Fields[i].Name #> { get; set; }
 <#
             }
             else{
 #>    
         /// <summary>
-        /// <#= entity.Fields[i].Comment #>
+        /// <#=                    entity.Fields[i].Comment #>
         /// </summary>
-        public <#= entity.Fields[i].Type #> <#= entity.Fields[i].Name #> { get; set; }
+        public <#=                    entity.Fields[i].Type #> <#=                    entity.Fields[i].Name #> { get; set; }
 <#            }
         }
 #>
     }
-}
-<#        
-        manager.EndBlock(); 
+<#       
     }
-
     manager.Process(true);
+    manager.EndBlock(); 
 #>
+}
+
