@@ -8,7 +8,7 @@
 <#@ import namespace="MySql.Data.MySqlClient" #>
 
 <#+
-    public class EntitiesHelper
+    public class PocoDbHelper
     {
         public static List<Entity> GetEntities(string connectionString, List<string> databases)
         {

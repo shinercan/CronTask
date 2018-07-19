@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.11" />
+    <PackageReference Include="PetaPoco.NetCore" Version="1.0.1" />
     <PackageReference Include="T4" Version="2.0.1" />
   </ItemGroup>
 
@@ -26,6 +27,10 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DbHelper.cs</LastGenOutput>
     </None>
+    <None Update="Models\Generated\Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Entities.cs</LastGenOutput>
+    </None>
     <None Update="RuntimeTextTemplate1.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>RuntimeTextTemplate1.cs</LastGenOutput>
@@ -45,6 +50,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Models\Generated\Entities.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities.tt</DependentUpon>
+    </Compile>
     <Compile Update="RuntimeTextTemplate1.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -54,6 +64,14 @@
 
   <ItemGroup>
     <Folder Include="Models\PartialMap\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Models\Generated\Entities.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities.tt</DependentUpon>
+    </None>
   </ItemGroup>
 
 </Project>
