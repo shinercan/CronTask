@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Models\Generated\Entities.tt" />
+    <None Remove="Models\Generated\PocoCore.ttinclude" />
+    <None Remove="Models\Generated\PocoDbHelper.ttinclude" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.11" />
     <PackageReference Include="PetaPoco.NetCore" Version="1.0.1" />
     <PackageReference Include="T4" Version="2.0.1" />
@@ -27,9 +33,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DbHelper.cs</LastGenOutput>
     </None>
-    <None Update="Models\Generated\Entities.tt">
+    <None Update="Models\Generated\CronTask.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Entities.cs</LastGenOutput>
+      <LastGenOutput>CronTask.cs</LastGenOutput>
     </None>
     <None Update="RuntimeTextTemplate1.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -50,6 +56,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Models\Generated\CronTask.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CronTask.tt</DependentUpon>
+    </Compile>
     <Compile Update="RuntimeTextTemplate1.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

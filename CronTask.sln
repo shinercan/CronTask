@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CronTask", "CronTask\CronTask.csproj", "{6C28CD07-6404-4116-831D-816BDE450AD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CronTask", "CronTask\CronTask.csproj", "{6C28CD07-6404-4116-831D-816BDE450AD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CronTask.Entities", "CronTask.Entities\CronTask.Entities.csproj", "{AE589AED-2214-4EBE-9222-69A6DB38B189}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CronTask.Entities", "CronTask.Entities\CronTask.Entities.csproj", "{AE589AED-2214-4EBE-9222-69A6DB38B189}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{75E6357A-A32A-40D7-89D2-11187C163F3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AE589AED-2214-4EBE-9222-69A6DB38B189}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE589AED-2214-4EBE-9222-69A6DB38B189}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE589AED-2214-4EBE-9222-69A6DB38B189}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E6357A-A32A-40D7-89D2-11187C163F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E6357A-A32A-40D7-89D2-11187C163F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E6357A-A32A-40D7-89D2-11187C163F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E6357A-A32A-40D7-89D2-11187C163F3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
