@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,9 +24,9 @@ namespace CronTask
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            Test.TestAddStr(services, Configuration);
+            //Test.TestAddStr(services, Configuration);
+            BenchmarkRunner.Run<Test>();
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -41,6 +43,8 @@ namespace CronTask
             app.UseStaticFiles();
 
             app.UseMvc();
+
+            //var config = new ConfigurationBuilder().AddJsonFile("").Build();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using BenchmarkDotNet.Attributes;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -7,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace CronTask
 {
-    public static class Test
+    public class Test
     {
+        [Benchmark]
         public static void TestAddStr(IServiceCollection service, IConfiguration configuration)
         {
             string testConStr = configuration["ConStr:Default"];
