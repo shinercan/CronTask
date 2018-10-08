@@ -15,5 +15,5 @@ namespace CronTask
         {
             string testConStr = configuration["ConStr:Default"];
         }
-    }
+ }
 }

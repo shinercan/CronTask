@@ -43,7 +43,6 @@ namespace CronTask
             app.UseStaticFiles();
 
             app.UseMvc();
-
             //var config = new ConfigurationBuilder().AddJsonFile("").Build();
         }
     }
