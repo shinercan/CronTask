@@ -17,8 +17,9 @@
     string projectDir = Host.ResolveAssemblyReference("$(ProjectDir)");
     string solutionDir = Host.ResolveAssemblyReference("$(SolutionDir)");
     var db = new SqlSugarClient(new ConnectionConfig() { 
-            ConnectionString =  "server=120.79.84.18;database=himall_test;uid=himall_admin;password=himall@yw;",
-            DbType = DbType.MySql, IsAutoCloseConnection = true }); 
+            ConnectionString ="server=120.79.84.18;database=himall_test;uid=himall_admin;password=himall@yw;",
+            DbType = DbType.MySql, 
+            IsAutoCloseConnection = true }); 
     db.DbFirst.Where(o=>o.ToLower().StartsWith("himall_member"))
         .CreateClassFile(projectDir+"\\Model\\Generated","CronTask.Model");      
 #>
